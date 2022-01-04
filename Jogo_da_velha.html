@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Jogo Da Velha</title>
+<script language="Javascript">
+    var lugares, x, i, col, lin, contador;
+    contador = 0;
+    lin = 0;
+    col = 0;
+    i = 0;
+    lugares = new Array(3);
+    for(x = 0; x < lugares.length; x++)
+    {
+        lugares[x] = new Array(3);
+    } 
+    
+
+
+
+    function reservou(qualL, qualC)
+    {
+        contador = contador + 1;
+        if (contador == 1 || contador == 3 || contador == 5 || contador == 7 || contador == 9)
+        {
+            xizinho(qualL, qualC);
+        }
+        else
+        {
+            bolinha(qualL, qualC);
+        }
+     
+    }
+    
+    function xizinho(qualL, qualC)
+    {
+        lugares[qualL][qualC] = "2";
+        document.getElementById("lug" + qualL + qualC).setAttribute("src","x.png");  
+        if (lugares[0][0] == "2" && lugares[0][1] == "2" && lugares[0][2] == "2")
+        {
+            alert("O 'X' venceu!");   
+        }
+        if (lugares[0][0] == "2" && lugares[1][0] == "2" && lugares[2][0] == "2")
+        {
+            alert("O 'X' venceu!");
+        }  
+        if (lugares[0][0] == "2" && lugares[1][1] == "2" && lugares[2][2] == "2")
+        {
+            alert("O 'X' venceu!");   
+        }
+        if (lugares[0][1] == "2" && lugares[1][1] == "2" && lugares[2][1] == "2")
+        {
+            alert("O 'X' venceu!");   
+        }  
+        if (lugares[0][2] == "2" && lugares[1][2] == "2" && lugares[2][2] == "2")
+        {
+            alert("O 'X' venceu!");   
+        }   
+        if (lugares[0][2] == "2" && lugares[1][1] == "2" && lugares[2][0] == "2")
+        {
+            alert("O 'X' venceu!");   
+        } 
+        if (lugares[2][1] == "2" && lugares[2][2] == "2" && lugares[2][0] == "2")
+        {
+            alert("O 'X' venceu!");   
+        }      
+        if(lugares[1][1] == "2" && lugares[1][0] == "2" && lugares[1][2] == "2")
+        {
+            alert("O 'X' venceu!");   
+        }   
+    }
+
+    function bolinha(qualL, qualC)
+    {
+        lugares[qualL][qualC] = "1";
+        document.getElementById("lug" + qualL + qualC).setAttribute("src","o.png");    
+        if (lugares[0][0] == "1" && lugares[0][1] == "1" && lugares[0][2] == "1")
+        {
+            alert("O 'O' venceu!");   
+        }
+        if (lugares[0][0] == "1" && lugares[1][0] == "1" && lugares[2][0] == "1")
+        {
+            alert("O 'O' venceu!");
+        }  
+        if (lugares[0][0] == "1" && lugares[1][1] == "1" && lugares[2][2] == "1")
+        {
+            alert("O 'O' venceu!");   
+        }
+        if (lugares[0][1] == "1" && lugares[1][1] == "1" && lugares[2][1] == "1")
+        {
+            alert("O 'O' venceu!");   
+        }  
+        if (lugares[0][2] == "1" && lugares[1][2] == "1" && lugares[2][2] == "1")
+        {
+            alert("O 'O' venceu!");   
+        }   
+        if (lugares[0][2] == "1" && lugares[1][1] == "1" && lugares[2][0] == "1")
+        {
+            alert("O 'O' venceu!");   
+        } 
+        if (lugares[2][1] == "1" && lugares[2][2] == "1" && lugares[2][0] == "1")
+        {
+            alert("O 'O' venceu!");   
+        }      
+        if(lugares[1][1] == "1" && lugares[1][0] == "1" && lugares[1][2] == "1")
+        {
+            alert("O 'O' venceu!");   
+        }      
+    }
+
+
+</script>
+</head>
+
+<body>
+    <form>
+        <table border="solid">
+        <script language="Javascript">
+            for(lin = 0; lin < 3; lin++)
+            {
+                document.write("<tr>")
+                for(col = 0; col < 3; col++)
+                { 
+                    document.write("<td><img id='lug" + lin + col + "' width='20' height='30' src='b.png' onclick='reservou(" + lin + "," + col + ");'></td>");
+                    
+                }
+                document.write("</tr>")
+            }
+        </script>
+        </table>
+    </form>
+</body>
+</html>
